@@ -10,10 +10,10 @@ $user = 'root';
 $password = 'coderslab';
 $database = 'twitter';
 
-$conn = new mysqli($host, $user, $password, $database);
+$connection = new mysqli($host, $user, $password, $database);
 
-if($conn->connect_error){
-    die('Połączenie nieudane. Błąd ' . $conn->error);
+if($connection->connect_error){
+    die('Połączenie nieudane. Błąd ' . $connection->error);
 } else {
     echo 'Połączenie udane';    
 }

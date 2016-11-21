@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+include_once '../web/connection.php';
 class User {
 
     private $id;
@@ -121,12 +121,7 @@ class User {
 
 }
 
-$db = new mysqli('localhost', 'root', 'coderslab', 'test');
-if ($db->connect_error) {
-    die("Połączenie nieudane. Blad: " . $db->connect_error);
-} else {
-    echo 'Połącznie udane' . '<br>';
-}
+
 //$user = new User();
 //$user->setEmail('bolek@wp2.pl');
 //$user->setUsername('tomek');
