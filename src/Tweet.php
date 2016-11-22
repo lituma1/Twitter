@@ -65,7 +65,7 @@ class Tweet {
     function saveToDb(mysqli $connection){
         if($this->id == -1){
             $sql = "INSERT INTO Tweet (user_id, tweet_text, creation_date) VALUES ('$this->userId', '$this->text', '$this->creationDate')";
-            $connection->set_charset("utf8");
+            
                     
             $result = $connection->query($sql);
             if($result){
@@ -85,7 +85,7 @@ class Tweet {
 //    echo 'Połącznie udane' . '<br>';
 //}
 $tweet = new Tweet();
-$tweet->setText('Dobranoc na dziś wystarczy ciekawe kiedy przekroczę 140 znaków');
+$tweet->setText('Czas na pierwszy dziś tweet z polskimi znakami ąćźżłó');
 $tweet->setUserId(1);
 $tweet->setCreationDate(date('Y-m-d H:i:s'));
 var_dump($tweet);
