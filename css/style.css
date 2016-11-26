@@ -8,3 +8,18 @@ and open the template in the editor.
     Author     : pp
 */
 
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+    border-collapse: collapse;
+}
+a {
+    text-decoration: none;
+}
+h3 {
+    color: red;
+}
+p {
+    color: black;
+    font-size: 16px;
+}
