@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-include_once '../web/connection.php';
+//include_once '../web/connection.php';
 class User {
 
     private $id;
@@ -128,9 +128,9 @@ class User {
 
 
 
-$a = User::loadUserById($connection, 59);
-var_dump($a);
-$a->delete($connection);
+//$a = User::loadUserById($connection, 59);
+//var_dump($a);
+//$a->delete($connection);
 
 
 
