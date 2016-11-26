@@ -78,15 +78,10 @@ class Tweet {
         return false;
     } 
 }
-//$db = new mysqli('localhost', 'root', 'coderslab', 'twitter');
-//if ($db->connect_error) {
-//    die("Połączenie nieudane. Blad: " . $db->connect_error);
-//} else {
-//    echo 'Połącznie udane' . '<br>';
-//}
+
 $tweet = new Tweet();
-$tweet->setText('Czas na pierwszy dziś tweet z polskimi znakami ąćźżłó');
-$tweet->setUserId(1);
+$tweet->setText('Tak naprawdę piękna pogoda');
+$tweet->setUserId(59);
 $tweet->setCreationDate(date('Y-m-d H:i:s'));
 var_dump($tweet);
 $tweet->saveToDb($connection);

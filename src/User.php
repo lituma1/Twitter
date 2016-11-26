@@ -59,26 +59,25 @@ class User {
                 return true;
             }
         } else {
-            $sql = "UPDATE Users SET"
-                    . " username = '$this->username,"
-                    . " email = $this->email',"
-                    . " hashed_password = $this->hashedPassword'"
-                    . "WHERE "
-                    . "id= $this->id";
+            $sql = "UPDATE Users SET username = '$this->username', email = '$this->email',hashed_password = '$this->hashedPassword' WHERE id= $this->id";
         }
         if ($connection->query($sql)) {
+            echo 'zapis w bazie zmodyfikowany';
             return true;
+            
         }
+        echo 'modyfikacja nie powiodła się' . $connection->error;
         return false;
     }
 
     static function loadUserById(mysqli $connection, $id) {
-        $sql = "SELECT id, username, email, hashed_password FROM Users WHERE id=" . $id;
+        $sql = "SELECT id, username, email, hashed_password FROM Users WHERE id=$id";
         $res = $connection->query($sql);
         if ($res == true && $res->num_rows == 1) {
             $row = $res->fetch_assoc();
 
             $loadedUser = new User();
+            $loadedUser->id = $row['id'];
             $loadedUser->username = $row['username'];
             $loadedUser->email = $row['email'];
             $loadedUser->hashedPassword = $row['hashed_password'];
@@ -97,6 +96,7 @@ class User {
             foreach ($result as $row) {
 
                 $loadedUser = new User();
+                $loadedUser->id = $row['id'];
                 $loadedUser->username = $row['username'];
                 $loadedUser->email = $row['email'];
                 $loadedUser->hashedPassword = $row['hashed_password'];
@@ -112,39 +112,26 @@ class User {
             $result = $connection->query($sql);
             if ($result == true) {
                 $this->id = -1;
+                echo 'rekord usunięty z bazy';
                 return true;
             }
+            echo 'nie dało usunąć się rekordu';
             return false;
         }
+        
         return true;
     }
 
 }
 
 
-//$user = new User();
-//$user->setEmail('bolek@wp2.pl');
-//$user->setUsername('tomek');
-//$user->setHashedPassword('sanki');
-////$user->saveToDb($db);
-//if($user->saveToDb($db)){
-//    echo 'user zapisany';
-//} else {
-//    echo 'user niezapisany';
-//}
 
-//$u = User::loadUserById($db, $id = 1);
-//if ($u) {
-//    echo 'Użytkownik ' . $u->getUsername() . ' wczytany poprawnie';
-//    $u->setHashedPassword('rowerek');
-//    //$u->setUsername('piotr');
-//    $u->saveToDb($db);
-//} else {
-//    echo 'Nie udało się wczytać użytkownika o  id=' . $id;
-//}
-//
-//var_dump($u);
-//$arr = User::loadAllUsers($db);
-//var_dump($arr);
-$v = new User();
-var_dump($v);
+
+
+$a = User::loadUserById($connection, 59);
+var_dump($a);
+$a->delete($connection);
+
+
+
+
