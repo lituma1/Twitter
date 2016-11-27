@@ -26,3 +26,6 @@ SELECT * FROM Tweet WHERE id = $id;
 SELECT * FROM Tweet WHERE user_id= $userId ORDER BY creation_date DESC;
 
 CREATE TABLE Comment (id INT unsigned NOT NULL AUTO_INCREMENT, user_id INT unsigned NOT NULL, tweet_id INT unsigned NOT NULL, comment_text VARCHAR(60), creation_date DATETIME, PRIMARY KEY (id), FOREIGN KEY(user_id) REFERENCES Users(id), FOREIGN KEY(tweet_id) REFERENCES Tweet(id) ON DELETE CASCADE);
+INSERT INTO Comment (user_id, tweet_id, comment_text, creation_date) VALUES($this->user_id, $this->tweet_id, '$this->text', '$this->creation_date');
+SELECT * FROM Comment WHERE id = $id ORDER BY creation_date DESC;
+SELECT id, user_id, tweet_id, comment_text, creation_date FROM Comment WHERE tweet_id= $tweetId ORDER BY creation_date DESC

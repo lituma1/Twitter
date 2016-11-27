@@ -34,13 +34,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         <h2>Jeśli chcesz znać więcej szczegółów kliknij w tekst tweetu</h2>
         <table>
 
-            <tr>
-                
+            <tr> 
                 <th>Tweet</th>
                 <th>data</th>
             </tr>
             <?php
             $tweets = Tweet::loadAllTweets($connection);
+            
             foreach ($tweets as $tweet) {
 
                 echo '<tr>';
