@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
             </tr>
             <tr>
             <?php
-            echo "<td>$userName</td>";
+            echo "<td><a href='usersite.php?userId=$userId'>$userName</a></td>";
             echo "<td>$text</td>";
             echo "<td>$data</td>";
             ?>
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
                 $name = $user->getUsername();
                 echo '<tr>';
                
-                echo '<td>'.$name.'</td>';
+                echo "<td><a href='usersite.php?userId=$userId'>$name</a></td>";
                 echo '<td>'.$comment->getText().'</td>';
                 echo '<td>' . $comment->getCreation_date() . '</td>';
                 echo '</tr>';

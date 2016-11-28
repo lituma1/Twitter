@@ -8,7 +8,15 @@
 include_once 'connection.php';
 include_once '../src/Tweet.php';
 include_once '../src/User.php';
-$userId = 1;
+if ($_SERVER['REQUEST_METHOD']==='GET'){
+    $userId = $_GET['userId'];
+    if(!empty($userId) && is_numeric($userId)){
+        $user = User::loadUserById($connection, $userId);
+        $userName = $user->getUsername();
+    } else {
+    echo 'metodą get przesłano niepoprawne dane';    
+    }
+}
 ?>
 
 <html lang="pl-PL">
@@ -18,8 +26,9 @@ $userId = 1;
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        
-        <h2>Poniżej wszystkie wysłane przez Ciebie tweety</h2>
+        <h1>Użytkownik <?php echo $userName ?><h1>
+            
+        <h2>Poniżej wszystkie wysłane przez tego użytkownika tweety</h2>
         <table>
 
             <tr>
@@ -28,7 +37,7 @@ $userId = 1;
                 <th>data</th>
             </tr>
             <?php
-            $tweets = Tweet::loadAllTweetsByUserId($connection, 1);
+            $tweets = Tweet::loadAllTweetsByUserId($connection, $userId);
             foreach ($tweets as $tweet) {
 
                 echo '<tr>';

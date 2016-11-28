@@ -86,6 +86,25 @@ class User {
         }
         return null;
     }
+    
+    static function loadUserByEmail(mysqli $connection, $email) {
+        $sql = "SELECT id, username, email, hashed_password FROM Users WHERE email='$email'";
+        $res = $connection->query($sql);
+        if ($res == true && $res->num_rows == 1) {
+            $row = $res->fetch_assoc();
+
+            $loadedUser = new User();
+            $loadedUser->id = $row['id'];
+            $loadedUser->username = $row['username'];
+            $loadedUser->email = $row['email'];
+            $loadedUser->hashedPassword = $row['hashed_password'];
+            // bezpieczniej ustawiać wszystko co się da seterami
+            return $loadedUser;
+        } else {
+        echo 'błąd zapytnia lub użytkownik o takim mailu nie istnieje'.$connection->error;    
+        }
+        return null;
+    }
 
     static function loadAllUsers(mysqli $connection) {
         $sql = "SELECT * FROM Users";
@@ -131,7 +150,13 @@ class User {
 //$a = User::loadUserById($connection, 59);
 //var_dump($a);
 //$a->delete($connection);
+//$a = new User();
+//$a->setEmail('janek@wp.pl');
+//$a->setHashedPassword('kot');
+//$a->setUsername('janek');
+//
+//$a->saveToDb($connection);
 
 
-
-
+//$a = User::loadUserByEmail($connection, 'janek@wp.pl');
+//var_dump($a);

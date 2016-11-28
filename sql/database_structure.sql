@@ -30,3 +30,6 @@ INSERT INTO Comment (user_id, tweet_id, comment_text, creation_date) VALUES($thi
 SELECT * FROM Comment WHERE id = $id ORDER BY creation_date DESC;
 SELECT id, user_id, tweet_id, comment_text, creation_date FROM Comment WHERE tweet_id= $tweetId ORDER BY creation_date DESC
 CREATE TABLE Message (id INT unsigned NOT NULL AUTO_INCREMENT, sender_id INT unsigned NOT NULL, recipient_id INT unsigned NOT NULL, message_text TEXT, status TINYINT(1), creation_date DATETIME, PRIMARY KEY(id), FOREIGN KEY (sender_id) REFERENCES Users(id), FOREIGN KEY (recipient_id) REFERENCES Users(id) ON DELETE CASCADE);
+INSERT INTO Message (sender_id, recipient_id, message_text, status, creation_date) VALUES ($this->sender_id, $this->recipient_id, '$this->text', $this->status, '$this->creation_date');
+UPDATE Message SET status = 1 WHERE id= $this->id;
+SELECT * FROM Message WHERE sender_id= $userId OR recipient_id = $userId  ORDER BY creation_date DESC;
