@@ -17,16 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $goodPass = password_verify($password, $user->getPassword());
 
             if ($goodPass) {
-                if(!isset($_SESSION['user'])){
-                    $_SESSION['user'] = $user->getId();
-                }
+                
+                $_SESSION['user'] = $user->getId();
+                
                 header("Location: web/index.php");
                 exit;
             } else {
                 echo 'Nieprawidłowe hasło';
             }
-        } else {
-            echo 'nie ma użytkownika o takim mailu';
+        
         }
     } else {
         echo 'proszę uzupełnić potrzebne dane';

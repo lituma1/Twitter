@@ -8,18 +8,25 @@
 include_once 'connection.php';
 include_once '../src/Message.php';
 include_once '../src/User.php';
+session_start();
+$userId = $_SESSION['user'];
 if($_SERVER['REQUEST_METHOD']==='GET'){
     
     if(!empty($_GET['messageId'])){
         $id = $_GET['messageId'];
+        
         $message = Message::loadMessageById($connection, $id);
-        var_dump($message);
+        //var_dump($message);
         $text = $message->getText();
         $senderId = $message->getSender_id();
+        
         $sender = User::loadUserById($connection, $senderId);
         $senderName = $sender->getUsername();
         $date = $message->getCreation_date();
-        $message->saveToDb($connection);
+        if($senderId != $userId){
+        $message->saveToDb($connection); 
+        }
+        
     }
     
 }

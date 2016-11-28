@@ -9,7 +9,7 @@ include_once '../src/Comment.php';
  * and open the template in the editor.
  */
 session_start();
-
+$user_id = $_SESSION['user'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
    
@@ -28,8 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 }
 
-
-$user_id = 26;
 
 
 if ($_SERVER['REQUEST_METHOD']==='POST'){

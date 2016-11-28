@@ -74,7 +74,7 @@ class Comment {
                 $result = $connection->query($sql);
                 if ($result) {
                     $this->id = $connection->insert_id;
-                    echo 'dodano komentarz do bazy';
+                    
                     return true;
                 } else {
                     echo 'błąd zapisu do bazy' . $connection->error;
@@ -100,9 +100,7 @@ class Comment {
                     $loadedComment->setCreation_date($row['creation_date']);
                 }
                 return $loadedComment;
-            } else {
-                echo 'komentarz o podanym id nie istnieje';
-            }
+            } 
         } else {
             echo 'błędne zapytanie do bazy' . $connection->error;
         }
@@ -123,9 +121,7 @@ class Comment {
                     $ret[] = $loadedComment;
                 }
                 return $ret;
-            } else {
-            echo 'komentarz o podanym id nie istnieje';    
-            }
+            } 
         } else {
         echo 'błędne zapytanie do bazy '.$connection->error;    
         }

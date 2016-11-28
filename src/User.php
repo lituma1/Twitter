@@ -101,7 +101,7 @@ class User {
             // bezpieczniej ustawiać wszystko co się da seterami
             return $loadedUser;
         } else {
-        echo 'błąd zapytnia lub użytkownik o takim mailu nie istnieje'.$connection->error;    
+        echo 'Użytkownik o takim mailu nie istnieje';    
         }
         return null;
     }
