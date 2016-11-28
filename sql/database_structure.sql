@@ -29,3 +29,4 @@ CREATE TABLE Comment (id INT unsigned NOT NULL AUTO_INCREMENT, user_id INT unsig
 INSERT INTO Comment (user_id, tweet_id, comment_text, creation_date) VALUES($this->user_id, $this->tweet_id, '$this->text', '$this->creation_date');
 SELECT * FROM Comment WHERE id = $id ORDER BY creation_date DESC;
 SELECT id, user_id, tweet_id, comment_text, creation_date FROM Comment WHERE tweet_id= $tweetId ORDER BY creation_date DESC
+CREATE TABLE Message (id INT unsigned NOT NULL AUTO_INCREMENT, sender_id INT unsigned NOT NULL, recipient_id INT unsigned NOT NULL, message_text TEXT, status TINYINT(1), creation_date DATETIME, PRIMARY KEY(id), FOREIGN KEY (sender_id) REFERENCES Users(id), FOREIGN KEY (recipient_id) REFERENCES Users(id) ON DELETE CASCADE);
