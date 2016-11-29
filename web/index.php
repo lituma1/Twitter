@@ -2,11 +2,7 @@
 include_once 'connection.php';
 include_once '../src/Tweet.php';
 include_once '../src/User.php';
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 session_start();
 if(isset($_SESSION['user'])){
     $userId = $_SESSION['user'];
@@ -14,7 +10,7 @@ if(isset($_SESSION['user'])){
     
     header("Location: ../index.php");
 }
-//var_dump($tweets);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['sent']) && !empty($_POST['textTweeta'])) {
         $tweet = new Tweet();

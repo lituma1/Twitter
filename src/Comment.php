@@ -2,7 +2,6 @@
 
 class Comment {
 
-    //put your code here
     private $id;
     private $user_id;
     private $tweet_id;

@@ -1,19 +1,11 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 include_once 'connection.php';
 include_once '../src/Message.php';
 include_once '../src/User.php';
 session_start();
 $userId = $_SESSION['user'];
-//if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//    if (!empty($_GET['userId'])) {
-//        $_userId = $_GET['userId'];
-//    }
-//}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($_POST['message'])) {
@@ -53,8 +45,7 @@ if (!empty($messages)) {
     }
 }
 
-//var_dump($messagesRecived);
-//var_dump($messagesSent);
+
 ?>
 <html lang="pl-PL">
     <head>

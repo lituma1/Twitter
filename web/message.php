@@ -1,10 +1,6 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 include_once 'connection.php';
 include_once '../src/Message.php';
 include_once '../src/User.php';
@@ -16,7 +12,7 @@ if($_SERVER['REQUEST_METHOD']==='GET'){
         $id = $_GET['messageId'];
         
         $message = Message::loadMessageById($connection, $id);
-        //var_dump($message);
+        
         $text = $message->getText();
         $senderId = $message->getSender_id();
         

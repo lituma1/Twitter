@@ -74,7 +74,7 @@ class Message {
              $sql = "UPDATE Message SET status = 1 WHERE id= $this->id";
         }
         if ($connection->query($sql)) {
-            echo 'zapis w bazie zmodyfikowany';
+            
             return true;
             
         }
@@ -99,8 +99,7 @@ class Message {
                     $ret[] = $loadedMessage;
                 }
                 return $ret;
-            } else {
-            echo 'użytkownik o podanym id nie wysłał jeszcze tweetów';    
+           
             }
         } else {
         echo 'błędne zapytanie do bazy '.$connection->error;    

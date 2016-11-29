@@ -3,11 +3,7 @@ include_once 'connection.php';
 include_once '../src/Tweet.php';
 include_once '../src/User.php';
 include_once '../src/Comment.php';
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 session_start();
 $user_id = $_SESSION['user'];
 
@@ -49,9 +45,17 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
         $data = $tweet->getCreationDate();
         
     } else {
-    echo 'metodą post przesłano za mało danych';    
+        $tweetId = $_SESSION['tweetId'];
+        $tweet = Tweet::loadTweetById($connection, $tweetId);
+        $userId = $tweet->getUserId();
+        $user = User::loadUserById($connection, $userId);
+        $userName = $user->getUsername();
+        $text = $tweet->getText();
+        $data = $tweet->getCreationDate();
+    echo 'nie można wysyłać pustych komentarzy';    
     }
 }
+
 ?>
 <html lang="pl-PL">
     <head>

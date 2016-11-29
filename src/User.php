@@ -1,11 +1,6 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-//include_once '../web/connection.php';
+
 class User {
 
     private $id;
@@ -143,20 +138,3 @@ class User {
 
 }
 
-
-
-
-
-//$a = User::loadUserById($connection, 59);
-//var_dump($a);
-//$a->delete($connection);
-//$a = new User();
-//$a->setEmail('janek@wp.pl');
-//$a->setHashedPassword('kot');
-//$a->setUsername('janek');
-//
-//$a->saveToDb($connection);
-
-
-//$a = User::loadUserByEmail($connection, 'janek@wp.pl');
-//var_dump($a);

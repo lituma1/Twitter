@@ -20,11 +20,6 @@ class Tweet {
 
     function setText($text) {
         $this->text = $text;
-//        if(strlen($text <= 140)){
-//            $this->text = $text;
-//        } else {
-//        echo 'Twój tweet jest za długi maksymalna długość znaków to 140';    
-//        }
     }
 
     function setCreationDate($creationDate) {
@@ -101,8 +96,7 @@ class Tweet {
                     $ret[] = $loadedTweet;
                 }
                 return $ret;
-            } else {
-            echo 'użytkownik o podanym id nie wysłał jeszcze tweetów';    
+            
             }
         } else {
         echo 'błędne zapytanie do bazy '.$connection->error;    

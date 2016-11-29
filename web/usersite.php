@@ -1,9 +1,5 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 include_once 'connection.php';
 include_once '../src/Tweet.php';
 include_once '../src/User.php';
@@ -18,9 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo 'metodą get przesłano niepoprawne dane';
     }
 }
-//$userId = $_SESSION['user'];
-//$user = User::loadUserById($connection, $userId);
-//$userName = $user->getUsername();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     var_dump($_POST);
 }
