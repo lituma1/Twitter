@@ -53,7 +53,7 @@ class User {
         if ($this->id == -1) {
             $sql = "INSERT INTO Users (username, email, hashed_password) VALUES('$this->username', '$this->email', '$this->hashedPassword')";
 
-            //echo $sql;
+            
             if ($res = $connection->query($sql)) {
                 $this->id = $connection->insert_id;
                 return true;
@@ -62,7 +62,7 @@ class User {
             $sql = "UPDATE Users SET username = '$this->username', email = '$this->email',hashed_password = '$this->hashedPassword' WHERE id= $this->id";
         }
         if ($connection->query($sql)) {
-            echo 'zapis w bazie zmodyfikowany';
+            
             return true;
             
         }

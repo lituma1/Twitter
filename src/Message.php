@@ -1,19 +1,7 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Message
- *
- * @author pp
- */
-//include_once '../web/connection.php';
 class Message {
-    //put your code here
+   
     private $id;
     private $sender_id;
     private $recipient_id;
@@ -75,7 +63,7 @@ class Message {
     function saveToDb(mysqli $connection){
         if($this->id == -1){
             $sql = "INSERT INTO Message (sender_id, recipient_id, message_text, status, creation_date) VALUES ($this->sender_id, $this->recipient_id, '$this->text', $this->status, '$this->creation_date')";
-            echo $sql;
+           
             $result = $connection->query($sql);
             if($result){
                 $this->id = $connection->insert_id;
@@ -143,13 +131,3 @@ class Message {
     
 }
 
-//$message = new Message();
-//$message->setSender_id(26);
-//$message->setRecipient_id(1);
-//$message->setStatus(0);
-//$message->setText('hello to you');
-//$message->setCreation_date(date('Y-m-d H:i:s'));
-//$message->saveToDb($connection);
-//$message->saveToDb($connection);
-//$arr = Message::loadAllMessagesByUserId($connection, 26);
-//var_dump($arr);

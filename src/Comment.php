@@ -1,18 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Comment
- *
- * @author pp
- */
-//include_once '../web/connection.php';
-
 class Comment {
 
     //put your code here
@@ -129,12 +116,4 @@ class Comment {
     
 
 }
-//$comm = new Comment();
-//$comm->setCreation_date(date('Y-m-d H:i:s'));
-//$comm->setTweet_id(7);
-//$comm->setText('też tak myślę');
-//$comm->setUser_id(9);
-//var_dump($comm);
-//$comm->saveToDb($connection);
-//$comm = Comment::loadAllCommentsByPostId($connection, 7);
-//var_dump($comm);
+

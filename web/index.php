@@ -10,6 +10,9 @@ include_once '../src/User.php';
 session_start();
 if(isset($_SESSION['user'])){
     $userId = $_SESSION['user'];
+} else {
+    
+    header("Location: ../index.php");
 }
 //var_dump($tweets);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -32,6 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
+        <h1>Strona główna</h1>
+        <a class="home" href="messages.php">Zobacz swoje wiadomości</a>
+        <br>
+        <br>
+        <a class="home" href="editing.php">Zmień swoje dane</a>
+        <br>
+        <br>
+        <a class="home" href="../index.php?logout=1">Wyloguj</a>
         <form action="#" method="POST">
             <label>
                 <h2>Dodaj nowy tweet (max. liczba znaków to 140)</h2>

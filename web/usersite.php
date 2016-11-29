@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
+        <a class="home" href="index.php">Powrót na stronę główną</a>
         <h1>Użytkownik <?php echo $userName ?></h1>
 
         <h2>Poniżej wszystkie wysłane przez tego użytkownika tweety</h2>

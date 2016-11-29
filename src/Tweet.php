@@ -1,21 +1,7 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Tweet
- *
- * @author pp
- */
-//include_once '../web/connection.php';
-
 class Tweet {
 
-    //put your code here
     private $id;
     private $userId;
     private $text;

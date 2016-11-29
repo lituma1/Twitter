@@ -63,6 +63,7 @@ if (!empty($messages)) {
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
+        <a class="home" href="index.php">Powrót na stronę główną</a>
         <h1>Wiadomości użytkownika <?php echo $userName ?></h1>
         <h2>Wiadomości otrzymane</h2>
         <h3>Czcionką pogrubioną zaznaczono wiadomości, których jeszcze nie przeczytałeś</h3>

@@ -38,6 +38,7 @@ if($_SERVER['REQUEST_METHOD']==='GET'){
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
+        <a class="home"  href="messages.php">Powrót do wiadomości</a>
         <h2>Poniżej informacje i pełen tekst klikniętej wiadomości</h2>
         <table>
             <tr>

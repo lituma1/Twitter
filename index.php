@@ -31,6 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'proszę uzupełnić potrzebne dane';
     }
 }
+if($_SERVER['REQUEST_METHOD']==='GET'){
+    if(!empty($_GET['logout'])){
+        unset($_SESSION['user']);
+        echo 'Poprawne wylogowanie';
+    }
+}
 ?>
 <html lang="pl-PL">
     <head>
